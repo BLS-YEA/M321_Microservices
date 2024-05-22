@@ -1,0 +1,31 @@
+# Server config
+server:
+  port: 8080
+
+# Eureka Client
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+  
+# Spring Cloud
+spring:
+  application:
+    name: starWarsShop-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: product-catalog
+          uri: http://localhost:8081/api
+          predicates:
+            - Path=/blubber/**
+#        - id: service-02
+#          uri: http://localhost:8082/api
+#          predicates:
+#            - Path=/second/**
