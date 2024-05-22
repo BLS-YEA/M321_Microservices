@@ -25,7 +25,7 @@ spring:
           uri: http://localhost:8081/api
           predicates:
             - Path=/blubber/**
-#        - id: service-02
-#          uri: http://localhost:8082/api
-#          predicates:
-#            - Path=/second/**
+        - id: usermanagement
+          uri: http://localhost:8082/api
+          predicates:
+            - Path=/second/**
